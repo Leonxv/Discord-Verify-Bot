@@ -12,9 +12,9 @@ client.once("ready", () => {
     if(message.content === "!verify"){
       message.delete();
       var member = message.mentions.members.first();
-      var role = message.guild.roles.find(r => r.name === "verify");
+      var role = message.guild.roles.cache.find(r => r.name === "verify");
       if (!role) return message.reply("Bitte erstelle die Rolle verify !");
-      message.member.addRole(role);
+      message.member.roles.add(role.id);
       message.author.send("✅Du wurdest erfolgreich Verifiziert!✅");
     }
  
